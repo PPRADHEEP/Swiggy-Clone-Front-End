@@ -1,0 +1,80 @@
+.partner-container {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+  
+  .form-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+    text-align: left;
+  }
+  
+  .form-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  .disabled {
+    background: gray;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    cursor: not-allowed;
+  }
+  
+  /* Steps Section */
+  .steps-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .steps {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .step {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  /* Document Checklist */
+  .document-section {
+    background: #f3f3ff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .document-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .document-section li {
+    margin: 10px 0;
+  }
+  
+  .document-section a {
+    color: orange;
+    text-decoration: none;
+  }
+  

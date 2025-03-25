@@ -1,0 +1,47 @@
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ff9966, #ff5e62); /* 🎨 Use a nice gradient */
+}
+
+.login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #ff6600;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #ff6600;
+    border: none;
+}
+
+.toggle-text {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.toggle-text span {
+    color: #ff6600;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.forgot-password a {
+    color: #ff6600;
+    font-size: 14px;
+}
