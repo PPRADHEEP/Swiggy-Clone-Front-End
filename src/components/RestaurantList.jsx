@@ -5,25 +5,41 @@ import RestaurantCard from "./RestaurantCard";
 const RestaurantList = ({ selectedFood }) => {
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/restaurants") // Backend API
+    axios.get("http://localhost:8080/api/restaurants") // Ensure backend is running on correct port
       .then(response => {
         setRestaurants(response.data);
-        setFilteredRestaurants(response.data); // Initially show all restaurants
+        setFilteredRestaurants(response.data);
+        setLoading(false);
       })
-      .catch(error => console.error("Error fetching restaurants:", error));
+      .catch(error => {
+        console.error("Error fetching restaurants:", error);
+        setError("Failed to load restaurants.");
+        setLoading(false);
+      });
   }, []);
 
   useEffect(() => {
     if (selectedFood) {
-      setFilteredRestaurants(
-        restaurants.filter(restaurant => restaurant.foodType === selectedFood)
+      const filtered = restaurants.filter(
+        restaurant => restaurant.foodType?.toLowerCase() === selectedFood.toLowerCase()
       );
+      setFilteredRestaurants(filtered);
     } else {
-      setFilteredRestaurants(restaurants); // Show all restaurants when no filter is applied
+      setFilteredRestaurants(restaurants);
     }
   }, [selectedFood, restaurants]);
+
+  if (loading) {
+    return <p>Loading restaurants...</p>;
+  }
+
+  if (error) {
+    return <p className="error">{error}</p>;
+  }
 
   return (
     <div className="row">

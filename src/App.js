@@ -6,6 +6,7 @@ import Menu from "./components/Menu";
 import Cart from "./components/Cart";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import OtpVerification from "./components/OtpVerification";
 import ForgotPassword from "./components/ForgotPassword";
 import Footer from "./components/Footer"; 
 import PartnerWithUs from "./components/PartnerWithUs";
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/verify-otp" element={<OtpVerification />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/partner" element={<PartnerWithUs />} />
       </Routes>

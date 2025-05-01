@@ -1,3 +1,4 @@
+// src/components/Home.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaSearch, FaMapMarkerAlt } from "react-icons/fa";
@@ -40,6 +41,14 @@ const foodItems = [
 const Home = () => {
   const [selectedFood, setSelectedFood] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   useEffect(() => {
     if (selectedFood) {
@@ -50,9 +59,24 @@ const Home = () => {
     }
   }, [selectedFood]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+  };
+
   return (
     <div className="home-container">
-      
+      <div className="header">
+        {user ? (
+          <div>
+            <p>Welcome, {user.fullName}</p>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+        ) : (
+          <p>Please log in to continue.</p>
+        )}
+      </div>
+
       {/* Hero Section */}
       <div className="hero-section">
         <h2 className="hero-heading">
@@ -95,7 +119,6 @@ const Home = () => {
           <RestaurantList restaurants={restaurants} />
         </div>
       )}
-
     </div>
   );
 };
